@@ -26,6 +26,7 @@ def download_video(video_url, file_format):
         "format": "bestaudio/best" if file_format == "mp3" else "best",
         "outtmpl": f"{OUTPUT_FOLDER}/%(title)s.%(ext)s",
         "quiet": True,
+        "cookiefile": "cookies.txt",
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(video_url, download=True)
